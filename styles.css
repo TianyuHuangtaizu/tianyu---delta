@@ -1,0 +1,48 @@
+/* 手机优先设计 */
+body {
+    font-family: -apple-system, sans-serif;
+    background: #0f172a;
+    color: white;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.service-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.service-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #334155;
+}
+
+.order-btn {
+    display: block;
+    background: #dc2626;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.error {
+    color: #ef4444;
+    text-align: center;
+    padding: 2rem;
+}
