@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天御游戏服务</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 头部横幅 -->
+    <header class="header">
+        <img src="logo.png" alt="俱乐部徽标" width="80">
+        <h1>闪电接单中心</h1>
+        <p>专业认证｜隐私保障｜24小时服务</p>
+    </header>
+
+    <!-- 动态服务列表 -->
+    <div class="service-list" id="services"></div>
+
+    <script>
+        // 自动加载服务数据
+        fetch('services.json')
+            .then(response => {
+                if (!response.ok) throw new Error('数据加载失败');
+                return response.json();
+            })
+            .then(data => {
+                let html = data.services.map(service => `
+                    <div class="service-card ${service.hot ? 'hot' : ''}">
+                        <h3>${service.name}</h3>
+                        <div class="price">￥${service.price}</div>
+                        <p>⏱ ${service.time}</p>
+                        <a href="order.html?name=${encodeURIComponent(service.name)}&price=${service.price}" 
+                           class="order-btn">立即下单</a>
+                    </div>
+                `).join('');
+                document.getElementById('services').innerHTML = html;
+            })
+            .catch(err => {
+                document.getElementById('services').innerHTML = 
+                    '<p class="error">⚠️ 服务加载失败，请刷新重试</p>';
+            });
+    </script>
+</body>
+</html>
